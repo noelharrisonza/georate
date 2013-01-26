@@ -23,6 +23,6 @@
 	require_once(SRV_DIR . '/classes/navigate.class.php');
 
 	$drive = new Navigate();
-	$drive->execute(array('controller'=>'places','action'=>'add'));
+	$drive->execute(array('controller'=>$_POST['controller'],'action'=>$_POST['action'],'param'=>$_POST['param']));
 
 ?>
