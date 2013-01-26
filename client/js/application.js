@@ -6,10 +6,26 @@
  * Noel Harrison <noel.harrison2@gmail.com>
  */
 
-!(function() {
-  
-  $(document).ready(function() {
-    console.log("hello");
-  });
+// Models
+window.GeoRate = Backbone.Model.extend();
 
-})();
+// Router
+var GeoRateRouter = Backbone.Router.extend({
+  routes:{
+      "": "index",
+      "search/:query": "search"
+  },
+
+  // Index page.
+  index: function() {
+    $("#container").text("Welcome to GeoRate");
+  },
+
+  // Search
+  search: function(query) {
+    $("#container").text("You searched for: " + query);
+  }
+});
+
+var georate = new GeoRateRouter();
+Backbone.history.start();
